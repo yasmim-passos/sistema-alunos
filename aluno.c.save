@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include "aluno.h"
+#include "arquivo.h"
+
+void cadastrarAluno(Aluno alunos[], int *total) {
+    Aluno a;
+    a.matricula = (*total) + 1;
+
+    printf("Nome do aluno: ");
+    scanf(" %[^\n]", a.nome);
+
+    printf("Nota: ");
+    scanf("%f", &a.nota);
+
+    alunos[*total] = a;
+    (*total)++;
+
+    salvarAlunos(alunos, *total);
+    printf("Aluno cadastrado com sucesso!\n");
+}
+
+void listarAlunos(Aluno alunos[], int total) {
+    if (total == 0) {
+        printf("Nenhum aluno cadastrado.\n");
+        return;
+    }
+
+    for (int i = 0; i < total; i++) {
+        printf("%d - %s (Nota: %.2f)\n",
+               alunos[i].matricula,
+               alunos[i].nome,
+               alunos[i].nota);
+    }
+}
+
+void buscarAluno(Aluno alunos[], int total) {
+    int mat;
+    printf("Matrícula: ");
+    scanf("%d", &mat);
+
+    for (int i = 0; i < total; i++) {
+        if (alunos[i].matricula == mat) {
+            printf("Aluno encontrado: %s | Nota %.2f\n",
+                   alunos[i].nome,
+                   alunos[i].nota);
+            return;
+        }
+    }
+    printf("Aluno não encontrado.\n");
+}

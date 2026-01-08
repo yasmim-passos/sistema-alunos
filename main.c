@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include "aluno.h"
+#include "arquivo.h"
+
+#define MAX 100
+
+int main() {
+    setlocale(LC_ALL, "");
+
+    Aluno alunos[MAX];
+    int total = carregarAlunos(alunos);
+    int opcao;
+
+    do {
+    printf("\n=== SISTEMA DE ALUNOS ===\n");
+    printf("1 - Cadastrar aluno\n");
+    printf("2 - Listar alunos\n");
+    printf("3 - Buscar aluno\n");
+    printf("0 - Sair\n");
+    printf("Opção: ");
+
+    char entrada[10];
+    fgets(entrada, sizeof(entrada), stdin);
+    opcao = atoi(entrada);
+
+    switch (opcao) {
+        case 1:
+            cadastrarAluno(alunos, &total);
+            break;
+        case 2:
+            listarAlunos(alunos, total);
+            break;
+        case 3:
+            buscarAluno(alunos, total);
+            break;
+        case 0:
+            break;
+        default:
+            printf("Opção inválida.\n");
+    }
+
+    } while (opcao != 0);
+
+
+    return 0;
+}

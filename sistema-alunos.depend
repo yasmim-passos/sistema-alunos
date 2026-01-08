@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1767907211 source:c:\users\josef\downloads\sistema-alunos\aluno.c
+	<string.h>
+	<stdio.h>
+	"aluno.h"
+	"arquivo.h"
+
+1767907211 c:\users\josef\downloads\sistema-alunos\aluno.h
+
+1767906400 c:\users\josef\downloads\sistema-alunos\arquivo.h
+	"aluno.h"
+
+1767906400 source:c:\users\josef\downloads\sistema-alunos\arquivo.c
+	<stdio.h>
+	<stdlib.h>
+	"arquivo.h"
+
+1767907211 source:c:\users\josef\downloads\sistema-alunos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	"aluno.h"
+	"arquivo.h"
+
